@@ -154,7 +154,7 @@ jobs:
         if: always()
         run: |
           cat > wrangler.toml <<'EOF'
-          name = "draft-madoka-dao-unit-test"
+          name = "template-nextjs15-supabase-unit-test"
           account_id = "${{ secrets.CLOUDFLARE_ACCOUNT_ID }}"
           compatibility_date = "2024-01-01"
           [assets]
@@ -246,7 +246,7 @@ jobs:
         if: always()
         run: |
           cat > wrangler.toml <<'EOF'
-          name = "draft-madoka-dao-e2e-test"
+          name = "template-nextjs15-supabase-e2e-test"
           account_id = "${{ secrets.CLOUDFLARE_ACCOUNT_ID }}"
           compatibility_date = "2024-01-01"
           [assets]
