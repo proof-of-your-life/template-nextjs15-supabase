@@ -153,8 +153,13 @@ jobs:
       - name: Restore wrangler.toml from secrets
         if: always()
         run: |
-          cat > wrangler.toml <<'EOF'
-          name = "template-nextjs15-supabase-unit-test"
+          if [[ "${{ github.ref }}" == "refs/heads/develop" ]] || ([[ "${{ github.event_name }}" == "pull_request" ]] && [[ "${{ github.base_ref }}" == "develop" ]]); then
+            WORKER_NAME="template-nextjs15-supabase-develop-unit-test"
+          else
+            WORKER_NAME="template-nextjs15-supabase-unit-test"
+          fi
+          cat > wrangler.toml <<EOF
+          name = "$WORKER_NAME"
           account_id = "${{ secrets.CLOUDFLARE_ACCOUNT_ID }}"
           compatibility_date = "2024-01-01"
           [assets]
@@ -245,8 +250,13 @@ jobs:
       - name: Restore wrangler.toml from secrets
         if: always()
         run: |
-          cat > wrangler.toml <<'EOF'
-          name = "template-nextjs15-supabase-e2e-test"
+          if [[ "${{ github.ref }}" == "refs/heads/develop" ]] || ([[ "${{ github.event_name }}" == "pull_request" ]] && [[ "${{ github.base_ref }}" == "develop" ]]); then
+            WORKER_NAME="template-nextjs15-supabase-develop-e2e-test"
+          else
+            WORKER_NAME="template-nextjs15-supabase-e2e-test"
+          fi
+          cat > wrangler.toml <<EOF
+          name = "$WORKER_NAME"
           account_id = "${{ secrets.CLOUDFLARE_ACCOUNT_ID }}"
           compatibility_date = "2024-01-01"
           [assets]
