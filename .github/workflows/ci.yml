@@ -250,7 +250,7 @@ jobs:
       - name: Restore wrangler.toml from secrets
         if: always()
         run: |
-          if [[ "${{ github.ref }}" == "refs/heads/develop" ]] || ([[ "${{ github.event_name }}" == "pull_request" ]] && [[ "${{ github.base_ref }}" == "develop" ]]); then
+          if [ "${{ github.ref }}" = "refs/heads/develop" ] || ([ "${{ github.event_name }}" = "pull_request" ] && [ "${{ github.base_ref }}" = "develop" ]); then
             WORKER_NAME="template-nextjs15-supabase-develop-e2e-test"
           else
             WORKER_NAME="template-nextjs15-supabase-e2e-test"
