@@ -25,10 +25,10 @@ updates:
         exclude-patterns:
           - "react-scripts"
 
-  # Enable version updates for Docker
-  - package-ecosystem: "docker"
-    # Look for a `Dockerfile` in the `root` directory
-    directory: "/"
-    # Check the npm registry for updates every day (weekdays)
-    schedule:
-      interval: "daily"
+  # # Enable version updates for Docker
+  # - package-ecosystem: "docker"
+  #   # Look for a `Dockerfile` in the `root` directory
+  #   directory: "/"
+  #   # Check the npm registry for updates every day (weekdays)
+  #   schedule:
+  #     interval: "daily"
