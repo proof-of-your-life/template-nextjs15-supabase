@@ -12,6 +12,18 @@ updates:
     # Check the npm registry for updates every day (weekdays)
     schedule:
       interval: "daily"
+    groups:
+      react-ecosystem:
+        patterns:
+          - "react"
+          - "react-dom"
+          - "react-router"
+          - "react-router-dom"
+          - "@types/react"
+          - "@types/react-dom"
+          - "@testing-library/react"
+        exclude-patterns:
+          - "react-scripts"
 
   # Enable version updates for Docker
   - package-ecosystem: "docker"
